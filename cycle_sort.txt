@@ -1,7 +1,7 @@
 //write an algorithm for cycle sort
 Start
 Read the values of the array.
-Transfer the first number to the position with index number equal to number of elements lesser than it.
+Transfer the  first number (in 0 th index) to the position with index number equal to number of elements lesser than it.
 consider the  intial element in the position where the first number is transfered and transfer this number to the position with index number equal to number of elements lesser than it.
 Repeat the process till 0 th index is filled.It indicates a cycle.
 Repeat the same process by taking 1st index as first element and it indicates 2 nd cycle and continue it for all elements.
