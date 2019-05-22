@@ -1,0 +1,52 @@
+RADIX SORT
+
+-------------------------------------------------ALGORITHM-----------------------------------------------------------------------
+  
+  A is input array to be sorted
+  d is the number of digits in the highest number in A
+  
+  Radix_sort(A,d)
+  for i<--1 to d
+    do use a stable sort to sort array A on digit i
+
+---------------------------------------------------CODE in Python--------------------------------------------------------------
+    
+    from collections import deque
+
+    def radix_sort(A):
+        #A is an array
+        n = len(A)
+        max = max(A)
+        
+        max_digits = get_max_digits(max)
+
+        #buckets
+        buckets = []
+        for i in range(10):
+            buckets.append(deque())
+    
+        for j in range(max_digits):
+            
+            #adding into buckets
+            for k in range(len(A)):
+                d, e = 10**j, 10**(j+1)
+                f = int((A[k]%e)/d)
+                buckets[f].append(A[k])
+            
+            #creating A from values in bucket
+            i, l = 0 ,0
+            while l<n:
+                try:
+                    A[l] = buckets[i].popleft()
+                    l += 1
+                except IndexError:
+                    i = i+1
+        
+        return A
+                    
+    def get_max_digits(max):
+        max_digits = 0
+        while max>=1:
+                max_digits +=1
+                max = max/10
+        return max_digits
