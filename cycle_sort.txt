@@ -1,1 +1,46 @@
 //write an algorithm for cycle sort
+ Step 1:Start
+ Step 2:Declare the variables i,a[4],j,count,b
+ Step 3:Read the values
+ Step 4: start a for loop with i=0
+ Step 5: start a while loop in the former loop
+      5.1 keep initialising count=0 every time the loop runs
+      5.2 start a for loop by intialising j=0 in the former while loop
+      5.3 if a[i]>a[j] increment count value by 1      //to count number of elements lesser than i th element
+      5.4 Repeat the loop by incrementing value of j by 1 till j<4
+   Step 6: Store the value of the element in position with index number equal to number of elements lesser than i th element in
+          a variable b// b=a[count]
+   Step 7 :transfer the element in i th position to the position with index number equal to number of elements lesser than it//
+           a[count]=a[i]
+   Step 8:Store the value of b in a[i] and repeat the while loop till the condition a[count] not equals to a[i] becpmes false.
+   // to make a[i] as our target element and to set it in position with index number equal to number of elements lesser than it. 
+   Step 9:Now increment the value of i by 1 and repeat the steps 5-8 till i<4
+   Step 10:Print the sorted array of elements
+   Step 11:End
+
+  
+   //code
+   #include <stdio.h>
+   int main()
+   {
+   int i,a[4],j,count=0,b;
+    for(i=0;i<4;i++)
+    scanf("%d",&a[i]);
+    b=a[0]+1;
+   for(i=0;i<4;i++)
+   {while(a[count]!=a[i])
+   {count=0;
+   for(j=0;j<4;j++)
+   {
+       if(a[i]>a[j])
+       count++;
+   }
+   b=a[count];
+   a[count]=a[i];
+   a[i]=b;
+   }
+   }
+   for(i=0;i<4;i++)
+   printf("%d ",a[i]);
+   return 0;
+   }
