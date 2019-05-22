@@ -24,9 +24,10 @@
    #include <stdio.h>
    int main()
    {
-   int i,a[4],j,count=0,b=0;
+   int i,a[4],j,count=0,b;
     for(i=0;i<4;i++)
     scanf("%d",&a[i]);
+    b=a[0]+1;//intialising the value of b for first time execution of while loop
    for(i=0;i<4;i++)
    {while(a[i]!=b)
    {count=0;
